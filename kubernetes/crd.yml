@@ -42,19 +42,22 @@ spec:
                               ports:
                                 type: array
                                 items:
-                                  type: integer
-                        readinessProbe:
-                          type: object
-                          properties:
-                            httpGet:
-                              type: object
-                              properties:
-                                port:
-                                  type: integer
-                                scheme:
-                                  type: string
-                                path:
-                                  type: string
+                                  type: object
+                                  properties:
+                                    containerPort:
+                                      type: integer
+                              readinessProbe:
+                                type: object
+                                properties:
+                                  httpGet:
+                                    type: object
+                                    properties:
+                                      port:
+                                        type: integer
+                                      scheme:
+                                        type: string
+                                      path:
+                                        type: string
                     fog:
                       type: object
                       properties:
@@ -72,20 +75,22 @@ spec:
                               ports:
                                 type: array
                                 items:
-                                  type: integer
-                        readinessProbe:
-                          type: object
-                          properties:
-                            httpGet:
-                              type: object
-                              properties:
-                                port:
-                                  type: integer
-                                scheme:
-                                  type: string
-                                path:
-                                  type: string
-
+                                  type: object
+                                  properties:
+                                    containerPort:
+                                      type: integer
+                              readinessProbe:
+                                type: object
+                                properties:
+                                  httpGet:
+                                    type: object
+                                    properties:
+                                      port:
+                                        type: integer
+                                      scheme:
+                                        type: string
+                                      path:
+                                        type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
