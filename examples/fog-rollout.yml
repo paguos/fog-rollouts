@@ -1,0 +1,31 @@
+apiVersion: paguos.io/v1alpha1
+kind: FogRollout # Changed from Deployment
+metadata:
+  name: example-rollout
+spec:
+  version: v0.2.0
+  deployments:
+    cloud:
+      replicas: 5
+      containers:
+        - name: fog-app
+          image: nginx
+          ports:
+            - 80
+      readinessProbe:
+        httpGet:
+          port: 80
+          scheme: HTTP
+          path: /
+    fog:
+      replicas: 5
+      containers:
+        - name: fog-app
+          image: fog-app-fog:v0.2.0
+          ports:
+            - 80
+      readinessProbe:
+        httpGet:
+          port: 80
+          scheme: HTTP
+          path: /
