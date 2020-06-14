@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fog-rollouts-controller
+  labels:
+    app: fog-rollouts-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fog-rollouts-controller
+  template:
+    metadata:
+      labels:
+        app: fog-rollouts-controller
+    spec:
+      serviceAccountName: fog-rollouts
+      containers:
+        - name: fog-rollouts-controller
+          image: paguos/fog-rollouts-controller:test8
+          imagePullPolicy: Always
