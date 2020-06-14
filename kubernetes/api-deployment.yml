@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fog-rollouts-api
+  labels:
+    app: fog-rollouts-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fog-rollouts-api
+  template:
+    metadata:
+      labels:
+        app: fog-rollouts-api
+    spec:
+      serviceAccountName: fog-rollouts
+      containers:
+        - name: fog-rollouts-api
+          image: paguos/fog-rollouts-api
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
