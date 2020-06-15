@@ -10,11 +10,6 @@ LAYER = "cloud"
 
 
 @kopf.on.create('paguos.io', 'v1alpha1', 'fogrollouts')
-def create_fn_1(**kwargs):
-    print('CREATED 1st')
-
-
-@kopf.on.create('paguos.io', 'v1alpha1', 'fogrollouts')
 def create_3(body, meta, spec, status, **kwargs):
     deployment_data = {
         "apiVersion": "apps/v1",
