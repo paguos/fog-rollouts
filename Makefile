@@ -5,8 +5,11 @@ build:
 k3d/import:
 	k3d import-images fog-rollouts-api fog-rollouts-controller
 
-k3d/apply:
+k8s/base:
 	kubectl apply -f kubernetes/base
-	kubectl apply -f kubernetes/k3d
 
-run: build k3d/import k3d/apply
+k8s/namespace:
+	NAMESPACE=cloud ./scripts/namespace_apply.sh
+	NAMESPACE=fog ./scripts/namespace_apply.sh
+
+run: build k3d/import k8s/base k8s/namespace

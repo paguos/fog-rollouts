@@ -57,3 +57,12 @@ subjects:
   - kind: ServiceAccount
     name: fog-rollouts
     namespace: default
+  - kind: ServiceAccount
+    name: fog-rollouts
+    namespace: cloud
+  - kind: ServiceAccount
+    name: fog-rollouts
+    namespace: fog
+  - kind: ServiceAccount
+    name: fog-rollouts
+    namespace: edge
