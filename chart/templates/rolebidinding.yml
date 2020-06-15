@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: fog-rollouts
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: fog-rollouts
+subjects:
+  - kind: ServiceAccount
+    name: fog-rollouts
+    namespace: {{ .Release.Namespace }}
