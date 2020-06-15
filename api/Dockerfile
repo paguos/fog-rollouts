@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.8-slim-buster
 
 RUN pip install pipenv==2020.6.2 
 
