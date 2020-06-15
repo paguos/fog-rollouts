@@ -17,7 +17,7 @@ spec:
       serviceAccountName: fog-rollouts
       containers:
         - name: fog-rollouts-api
-          image: paguos/fog-rollouts-api
-          imagePullPolicy: Always
+          image: fog-rollouts-api
+          imagePullPolicy: Never
           ports:
             - containerPort: 8000
