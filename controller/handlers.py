@@ -1,11 +1,10 @@
 import kopf
-# import json
-import yaml
 
 from loguru import logger
 from pykube import Deployment
 from pykube import KubeConfig
 from pykube import HTTPClient
+from pykube import ObjectDoesNotExist
 
 LAYER = "cloud"
 
@@ -49,4 +48,23 @@ def create_3(body, meta, spec, status, **kwargs):
 
     logger.info("Creating deployment ... done!")
 
+    return {'job1-status': 100}
+
+
+@kopf.on.delete('paguos.io', 'v1alpha1', 'fogrollouts')
+def delete(body, meta, spec, status, **kwargs):
+    deployment_name = f"{meta['name']}-{LAYER}"
+    api = HTTPClient(KubeConfig.from_env())
+    logger.info(f"Deleting deployment {deployment_name} ...")
+
+    try:
+        deployment = Deployment.objects(
+            api).filter(
+            namespace=meta["namespace"]).get(name=deployment_name)
+        deployment.delete()
+    except ObjectDoesNotExist:
+        logger.warning(f"Deployment {deployment_name} doesn't exist")
+
+    api.session.close()
+    logger.info(f"Deleting deployment {deployment_name} ... done!")
     return {'job1-status': 100}
