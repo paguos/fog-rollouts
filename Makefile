@@ -1,8 +1,3 @@
-define helm_install
-	kubectl create ns $1
-    helm install fog-rollouts ./chart --namespace=$1
-endef
-
 build:
 	docker build api -t fog-rollouts-api
 	docker build controller -t fog-rollouts-controller
@@ -11,8 +6,8 @@ k3d/import:
 	k3d import-images fog-rollouts-api fog-rollouts-controller
 
 helm:
-	$(call helm_install,cloud)
-	$(call helm_install,fog)
+	helm install fog-rollouts ./chart --namespace=cloud --create-namespace
+	helm install fog-rollouts ./chart --namespace=fog --create-namespace
 
 clean:
 	helm delete fog-rollouts --namespace=cloud
