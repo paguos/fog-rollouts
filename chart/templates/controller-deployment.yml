@@ -19,3 +19,10 @@ spec:
         - name: fog-rollouts-controller
           image: fog-rollouts-controller
           imagePullPolicy: Never
+          command: 
+            - kopf
+            - run  
+            - --namespace={{ .Release.Namespace }}
+            - handlers.py  
+              
+              # ["kopf", "run", "--namespace="{{ .Release.Namespace }},"handlers.py"]

@@ -9,4 +9,3 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: fog-rollouts
-    namespace: {{ .Release.Namespace }}
