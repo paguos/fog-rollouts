@@ -23,6 +23,9 @@ spec:
             - kopf
             - run  
             - --namespace={{ .Release.Namespace }}
-            - handlers.py  
+            - handlers.py
+          env:
+            - name: FOG_ROLLOUTS_LAYER
+              value: {{ .Values.layer }}  
               
               # ["kopf", "run", "--namespace="{{ .Release.Namespace }},"handlers.py"]

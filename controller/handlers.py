@@ -1,4 +1,5 @@
 import kopf
+import os
 
 from loguru import logger
 from pykube import Deployment
@@ -6,7 +7,7 @@ from pykube import KubeConfig
 from pykube import HTTPClient
 from pykube import ObjectDoesNotExist
 
-LAYER = "cloud"
+LAYER = os.getenv("FOG_ROLLOUTS_LAYER", "cloud")
 
 
 def create_deployment_data(meta, spec):
