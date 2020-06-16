@@ -20,4 +20,4 @@ spec:
           image: fog-rollouts-api
           imagePullPolicy: Never
           ports:
-            - containerPort: 8000
+            - containerPort: 80

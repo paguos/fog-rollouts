@@ -3,10 +3,8 @@ kind: Service
 metadata:
   name: fog-rollouts-api
 spec:
-  type: ClusterIP
   selector:
     app: fog-rollouts-api
   ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 8000
+    - port: 80
+      targetPort: 80
