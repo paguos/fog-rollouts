@@ -14,6 +14,6 @@ COPY k8s.py .
 COPY models.py .
 
 ENV IN_CLUSTER True
-EXPOSE 8000
+EXPOSE 80
 
-CMD ["uvicorn", "api:app"]
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "80"]
