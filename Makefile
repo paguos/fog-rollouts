@@ -8,7 +8,7 @@ k3d/import:
 
 helm:
 	helm install fog-rollouts ./chart --namespace=cloud --create-namespace
-	helm install fog-rollouts ./chart --namespace=fog --create-namespace --set watcher.namespace=fog,watcher.api.endpoint=fog-rollouts-api.cloud,watcher.api.namespace=cloud,layer=fog
+	helm install fog-rollouts ./chart --namespace=fog --create-namespace --set layer.name=fog,layer.api_endpoint=fog-rollouts-api.fog,cloud.api_endpoint=fog-rollouts-api.cloud,cloud.namespace=cloud
 
 clean:
 	helm delete fog-rollouts --namespace=cloud

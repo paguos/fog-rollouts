@@ -1,7 +1,7 @@
-layer: cloud
-# watcher:
-#   api:
-#       endpoint: localhost
-#       namespace: default
-#   namespace: test
+layer: 
+  name: cloud
+  api_endpoint: fog-rollouts-api.{{ .Release.Namespace }}
+# cloud:
+#   api_endpoint: localhost
+#   namespace: default
   

@@ -1,4 +1,4 @@
-{{- if .Values.watcher -}}
+{{- if .Values.cloud -}}
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -17,11 +17,13 @@ spec:
             image: fog-rollouts-watcher
             imagePullPolicy: Never
             env:
-            - name: FOG_ROLLOUTS_API_ENDPOINT
-              value: {{ .Values.watcher.api.endpoint }}
+            - name: FOG_ROLLOUTS_API_CLOUD
+              value: {{ .Values.cloud.api_endpoint }}
             - name: FOG_ROLLOUTS_API_NAMESPACE
-              value: {{ .Values.watcher.api.namespace }}
+              value: {{ .Values.cloud.namespace }}
+            - name: FOG_ROLLOUTS_API_LAYER
+              value: {{ .Values.layer.api_endpoint }}
             - name: FOG_ROLLOUTS_NAMESPACE
-              value: {{ .Values.watcher.namespace }}
+              value: {{ .Release.Namespace }}
           restartPolicy: OnFailure
 {{- end -}}

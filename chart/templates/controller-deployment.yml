@@ -26,6 +26,6 @@ spec:
             - handlers.py
           env:
             - name: FOG_ROLLOUTS_LAYER
-              value: {{ .Values.layer }}  
+              value: {{ .Values.layer.name }}  
               
               # ["kopf", "run", "--namespace="{{ .Release.Namespace }},"handlers.py"]
