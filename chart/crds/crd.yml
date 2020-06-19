@@ -91,6 +91,39 @@ spec:
                                         type: string
                                       path:
                                         type: string
+                    edge:
+                      type: object
+                      properties:
+                        replicas:
+                          type: integer
+                        containers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              image:
+                                type: string
+                              ports:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    containerPort:
+                                      type: integer
+                              readinessProbe:
+                                type: object
+                                properties:
+                                  httpGet:
+                                    type: object
+                                    properties:
+                                      port:
+                                        type: integer
+                                      scheme:
+                                        type: string
+                                      path:
+                                        type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:

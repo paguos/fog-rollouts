@@ -29,3 +29,15 @@ spec:
               port: 80
               scheme: HTTP
               path: /
+    edge:
+      replicas: 1
+      containers:
+        - name: fog-nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              port: 80
+              scheme: HTTP
+              path: /
