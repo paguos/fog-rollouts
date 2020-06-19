@@ -17,7 +17,7 @@ spec:
       serviceAccountName: fog-rollouts
       containers:
         - name: fog-rollouts-controller
-          image: fog-rollouts-controller
+          image: fog-rollouts
           imagePullPolicy: Never
           command: 
             - kopf
@@ -28,4 +28,3 @@ spec:
             - name: FOG_ROLLOUTS_LAYER
               value: {{ .Values.layer.name }}  
               
-              # ["kopf", "run", "--namespace="{{ .Release.Namespace }},"handlers.py"]

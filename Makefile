@@ -1,10 +1,8 @@
 build:
-	docker build api -t fog-rollouts-api
-	docker build controller -t fog-rollouts-controller
-	docker build watcher -t fog-rollouts-watcher
+	docker build . -t fog-rollouts
 
 k3d/import:
-	k3d import-images fog-rollouts-api fog-rollouts-controller fog-rollouts-watcher
+	k3d import-images fog-rollouts
 
 helm:
 	helm install fog-rollouts ./chart --namespace=cloud --create-namespace

@@ -14,14 +14,15 @@ spec:
           serviceAccountName: fog-rollouts
           containers:
           - name: fog-rollouts-watcher
-            image: fog-rollouts-watcher
+            image: fog-rollouts
             imagePullPolicy: Never
+            command: ["python", "watcher.py"]
             env:
-            - name: FOG_ROLLOUTS_API_CLOUD
+            - name: FOG_ROLLOUTS_CLOUD_API
               value: {{ .Values.cloud.api_endpoint }}
-            - name: FOG_ROLLOUTS_API_NAMESPACE
+            - name: FOG_ROLLOUTS_CLOUD_NAMESPACE
               value: {{ .Values.cloud.namespace }}
-            - name: FOG_ROLLOUTS_API_LAYER
+            - name: FOG_ROLLOUTS_API
               value: {{ .Values.layer.api_endpoint }}
             - name: FOG_ROLLOUTS_NAMESPACE
               value: {{ .Release.Namespace }}

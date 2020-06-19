@@ -6,7 +6,7 @@ COPY Pipfile .
 COPY Pipfile.lock .
 RUN pipenv install --system
 
-WORKDIR /app
+WORKDIR /fog-rollouts
 
-COPY watcher.py .
-CMD [ "python", "watcher.py" ]
+COPY fog-rollouts .
+# CMD [ "python", "watcher.py" ]
