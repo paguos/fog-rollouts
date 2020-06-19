@@ -39,6 +39,15 @@ spec:
                                 type: string
                               image:
                                 type: string
+                              env:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                    value:
+                                      type: string
                               ports:
                                 type: array
                                 items:
@@ -72,6 +81,15 @@ spec:
                                 type: string
                               image:
                                 type: string
+                              env:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                    value:
+                                      type: string
                               ports:
                                 type: array
                                 items:
@@ -105,6 +123,15 @@ spec:
                                 type: string
                               image:
                                 type: string
+                              env:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                    value:
+                                      type: string
                               ports:
                                 type: array
                                 items:
