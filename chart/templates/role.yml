@@ -39,3 +39,15 @@ rules:
       - patch
       - delete
       - create
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+      - patch
+      - delete
+      - create
