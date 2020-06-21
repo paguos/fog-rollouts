@@ -55,6 +55,8 @@ spec:
                                   properties:
                                     containerPort:
                                       type: integer
+                                    name:
+                                      type: string
                               readinessProbe:
                                 type: object
                                 properties:
@@ -67,6 +69,24 @@ spec:
                                         type: string
                                       path:
                                         type: string
+                                  exec:
+                                    type: object
+                                    properties:
+                                      command:
+                                        type: array
+                                        items:
+                                          type: string
+                                  initialDelaySeconds:
+                                    type: integer
+                                  periodSeconds:
+                                    type: integer
+                                  timeoutSeconds:
+                                    type: integer
+                                  successThreshold:
+                                    type: integer
+                                  failureThreshold:
+                                    type: integer
+
                     fog:
                       type: object
                       properties:
@@ -97,6 +117,8 @@ spec:
                                   properties:
                                     containerPort:
                                       type: integer
+                                    name:
+                                      type: string
                               readinessProbe:
                                 type: object
                                 properties:
@@ -109,6 +131,24 @@ spec:
                                         type: string
                                       path:
                                         type: string
+                                  exec:
+                                    type: object
+                                    properties:
+                                      command:
+                                        type: array
+                                        items:
+                                          type: string
+                                  initialDelaySeconds:
+                                    type: integer
+                                  periodSeconds:
+                                    type: integer
+                                  timeoutSeconds:
+                                    type: integer
+                                  successThreshold:
+                                    type: integer
+                                  failureThreshold:
+                                    type: integer
+                                  
                     edge:
                       type: object
                       properties:
@@ -139,6 +179,8 @@ spec:
                                   properties:
                                     containerPort:
                                       type: integer
+                                    name:
+                                      type: string
                               readinessProbe:
                                 type: object
                                 properties:
@@ -151,6 +193,23 @@ spec:
                                         type: string
                                       path:
                                         type: string
+                                  exec:
+                                    type: object
+                                    properties:
+                                      command:
+                                        type: array
+                                        items:
+                                          type: string
+                                  initialDelaySeconds:
+                                    type: integer
+                                  periodSeconds:
+                                    type: integer
+                                  timeoutSeconds:
+                                    type: integer
+                                  successThreshold:
+                                    type: integer
+                                  failureThreshold:
+                                    type: integer
   # either Namespaced or Cluster
   scope: Namespaced
   names:
