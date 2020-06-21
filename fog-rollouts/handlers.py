@@ -59,7 +59,10 @@ def create(body, meta, spec, status, **kwargs):
     # kopf.label(pod_data, {'application': 'kopf-example-10'})
 
     deployment = Deployment(api, deployment_data)
-    deployment.create()
+    if deployment.exists():
+        deployment.update()
+    else:
+        deployment.create()
     logger.info("Creating deployment ... done!")
 
     logger.info("Creating service ...")
@@ -67,7 +70,10 @@ def create(body, meta, spec, status, **kwargs):
     kopf.adopt(service_data)
 
     service = Service(api, service_data)
-    service.create()
+    if service.exists():
+        service.update()
+    else:
+        service.create()
     logger.info("Creating service ... done!")
 
     api.session.close()
