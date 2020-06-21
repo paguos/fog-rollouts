@@ -32,10 +32,21 @@ def create_deployment_data(meta, spec):
 
 
 def create_service_data(meta, spec):
+    containers = [c
+                  for c in spec["deployments"][LAYER]["containers"]]
+    port_list = []
+    for container in containers:
+        ports = container["ports"]
+        for port in ports:
 
-    # TODO: Remove magic numbers and allow multiple ports
-    ports = [c["ports"][0]["containerPort"]
-             for c in spec["deployments"][LAYER]["containers"]]
+            port_spec = {
+                "port": port["containerPort"],
+                "targetPort": port["containerPort"]
+            }
+            if "name" in port:
+                port_spec["name"] = port["name"]
+
+            port_list.append(port_spec)
     return {
         "apiVersion": "v1",
         "kind": "Service",
@@ -44,7 +55,7 @@ def create_service_data(meta, spec):
         },
         "spec": {
             "selector": {"fog-rollout": f"{meta['name']}"},
-            "ports": [{"port": p, "targetPort": p} for p in ports]
+            "ports": port_list
         }
     }
 
