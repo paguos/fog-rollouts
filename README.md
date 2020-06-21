@@ -5,6 +5,7 @@ Experimental deployment of applications in fog environments.
 ## Requirements
 
 - [docker](https://www.docker.com/get-started) - container platform
+- [helm](http://helm.sh) - kubernetes package manager
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - kubernetes management tool
 - [k3d](https://github.com/rancher/k3d) - containerized k3s kubernetes distribution
 - [pipenv](https://pipenv.pypa.io/en/latest/) - python dependency manager
