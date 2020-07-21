@@ -29,3 +29,21 @@ Setup an environment with this three namespaces `cloud`, `fog` and `edge`:
 ```
 make run
 ```
+
+Note: This guide was designed for Linux and macOS
+
+## Example
+
+Deploy the example rollout:
+
+```sh
+kubeclt apply -f examples/nginx-rollout.yml -n cloud
+```
+
+After one or of two minutes run the following commands to verify the deployments:
+
+```sh
+kubectl get fog-rollouts --all-namespaces
+kubectl get pods --all-namespaces
+```
+
